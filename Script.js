@@ -1,12 +1,15 @@
 var request = new XMLHttpRequest()
 var names = [];
 var imgs =[];
+var y = getRandomInt(0,24);
+
+
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var y = getRandomInt(0,24);
+
 
 request.open('GET', 'https://api.punkapi.com/v2/beers', true)
 
@@ -24,11 +27,9 @@ data.forEach(function(beer,i){
     names[i] = beer.name; 
     imgs[i] = beer.image_url;
 })
-    var x = document.getElementById("root");
-    var z = document.getElementById("names")
-    z.innerHTML = names[y];
-    console.log(imgs[y]);
-    x.style.backgroundImage = 'url('+imgs[y]+')';
+    document.getElementById("root").style.backgroundImage = 'url('+imgs[y]+')';
+    document.getElementById("nomes").innerHTML = names[y];
+    console.log(names[y]);
 }
 
  console.log(y);
